@@ -1,6 +1,8 @@
 #ifndef _COMMON_UTILS_H
 #define _COMMON_UTILS_H
 
+#include <vector>
+
 namespace gf2_8_math {
 
 	const uint16_t AESPOLY = 0x011b;
@@ -25,5 +27,8 @@ uint8_t char2hex (char ch);
 void ascii2hex (uint8_t *buf,const char * ascii);
 void ascii2hex (uint8_t *buf, std::string ascii_str);
 void x_bytes (uint8_t *a, int size);
+
+uint8_t hexval(char);
+std::vector<uint8_t> str2vec (const char *);
 
 #endif

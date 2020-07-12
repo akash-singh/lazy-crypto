@@ -9,32 +9,6 @@
 #include "aes_block_cipher.h"
 #include "common_utils.h"
 
-uint8_t hexval (char n) {
-	uint8_t val;
-	if(n >= 'A' && n <= 'Z')
-		val = n - 'A' + 10;
-	else if (n >= 'a' && n <= 'z')
-		val = n - 'a'+ 10;
-	else if(n >= '0' && n <= '9')
-		val = n - '0';
-	else {
-		std::cout << "Invalid hex char" << std::endl;
-		std::exit(1);
-	}
-
-	return val;
-}
-
-std::vector<uint8_t> str2vec(const char *str) {
-	std::size_t len = strlen(str);
-	std::vector<uint8_t> vec;
-	vec.reserve(len/2);
-	for(std::size_t i=0; i < len; i+=2) 
-		vec.push_back((hexval(str[i]) << 4) | hexval(str[i+1]));
-
-	return vec;
-} 
-
 void test_ecb (YAML::Node node) {
 	std::vector<uint8_t> ct = str2vec(node["ct"].as<std::string>().c_str());
 	std::vector<uint8_t> pt = str2vec(node["pt"].as<std::string>().c_str());

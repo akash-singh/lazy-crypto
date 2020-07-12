@@ -11,3 +11,9 @@ add_custom_target(run_aes_smoke_test
     DEPENDS aes_test
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
+
+add_custom_target(run_arith_smoke_test
+    COMMAND arith_test ${PROJECT_SOURCE_DIR}/test/bigInt_test_vectors.yml
+    DEPENDS arith_test
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
