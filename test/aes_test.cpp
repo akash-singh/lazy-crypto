@@ -155,8 +155,9 @@ void test_gcm(YAML::Node node) {
 
 }
 
-int main () {
-	YAML::Node root = YAML::LoadFile("test_vectors.yml");
+int main (int argc, char * argv[]) {
+
+	YAML::Node root = YAML::LoadFile(argv[1]);
 
 	int test_count = 0;
 	for(YAML::const_iterator it = root.begin(); it != root.end(); it++) {

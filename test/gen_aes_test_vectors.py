@@ -71,9 +71,11 @@ def generate_gcm(key_size, ptlen, aadlen):
                 }
     yaml.dump([testvector],yamlfile,default_flow_style=False)
 
-yamlfile = open('test_vectors.yml', 'w')
+filename = sys.argv[1]
+num_vectors = int(sys.argv[2])
+yamlfile = open(filename, 'w')
+
 test_count = 0
-num_vectors = int(sys.argv[1])
 
 for i in range(0,num_vectors):
     for mode in ['AES_CBC', "AES_CFB", "AES_OFB", "AES_CTR", "AES_ECB"]:
